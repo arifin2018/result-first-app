@@ -9,3 +9,20 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+
+
+@media (max-width: 768px) { 
+  .expanded{
+    /* height: 200px !important; */
+    height: 14rem !important;
+    /* overflow-y: scroll; */
+    max-height: max-content;
+    width: 100%;
+  }
+
+  .collapsed{
+    height: 0;
+    width: 100%;
+  }
+}

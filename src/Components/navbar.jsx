@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 
 export default function Navbar(params) {
-    const [toggle, setToggle] = useState('hidden');
     const [button, setButton] = useState('burger');
+
     function showNav(e) {
-        setToggle(toggle === 'block' ? 'hidden' : 'block')
         setButton(button === 'burger' ? 'close' : 'burger')
+        const element = document.getElementById('navbar-content')
+        element.classList.toggle('expanded');
     }
+
     return (
         <>
             <section className='md:flex md:flex-initial'>
@@ -20,19 +22,20 @@ export default function Navbar(params) {
                                 <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 8H13.75M5 12H19M10.25 16L19 16" stroke="#464455" strokeLinecap="round" strokeLinejoin="round"/>
                                 </svg>
+                                
                                 :
-                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 50 50">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 50 50">
                                     <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
                                 </svg>
                             }
                         </button>
                     </div>
                     
-                </div>
-                <div className={`navbar-w-bg-h-p transition-all md:flex ${toggle}`}>
+                </div>  
+                <div id='navbar-content' className={`absolute z-10 collapsed overflow-y-auto navbar-w-bg-h-p transition-all md:flex md:relative md:collapsed-none`}>
                     <ul className="list-none md:flex md:flex-row md:justify-end md:w-full md:gap-x-8">
                         <li>
-                            <NavLink to='/stasiun' className='block py-3'>Stasiun</NavLink>
+                            <NavLink to='/news' className='block py-3'>News</NavLink>
                         </li>
                         <li>
                             <NavLink to='/' className='block py-3'>02</NavLink>
@@ -40,11 +43,20 @@ export default function Navbar(params) {
                         <li>
                             <NavLink to='/' className='block py-3'>03</NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/' className='block py-3'>04</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/' className='block py-3'>05</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/' className='block py-3'>06</NavLink>
+                        </li>
                     </ul>
                 </div>
             </section>
             <section>
-                <div className="container mx-auto">
+                <div className="container mx-auto mb-5">
                     {params.children}
                 </div>
             </section>
