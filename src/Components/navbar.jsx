@@ -13,8 +13,8 @@ export default function Navbar(params) {
     return (
         <>
             <section className='md:flex md:flex-initial'>
-                <div className="flex justify-between items-center w-100 bg-gray-200 min-h-[2.8rem] px-6 py-4">
-                    <NavLink to='/'>Navbar</NavLink>
+                <div className="flex justify-between items-center w-100 bg-gray-200 min-h-[2.8rem] px-6 py-2">
+                    <NavLink to='/'>News</NavLink>
                     <div className="relative md:hidden">
                         <button type="button" className='w-6 bg-transparent cursor-pointer border-0' onClick={showNav}>
                             {
@@ -32,13 +32,13 @@ export default function Navbar(params) {
                     </div>
                     
                 </div>  
-                <div id='navbar-content' className={`absolute z-10 collapsed overflow-y-auto navbar-w-bg-h-p transition-all md:flex md:relative md:collapsed-none`}>
+                <div id='navbar-content' className={`absolute z-10 collapsed overflow-y-auto navbar-w-bg-h-p transition-all md:flex md:relative md:collapsed-none md:py-2`}>
                     <ul className="list-none md:flex md:flex-row md:justify-end md:w-full md:gap-x-8">
                         <li>
-                            <NavLink to='/news' className='block py-3'>News</NavLink>
+                            <NavLink to='/antara' className='block py-3'>Antara</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/' className='block py-3'>02</NavLink>
+                            <NavLink to='/cnbc' className='block py-3'>Cnbc</NavLink>
                         </li>
                         <li>
                             <NavLink to='/' className='block py-3'>03</NavLink>
@@ -56,7 +56,7 @@ export default function Navbar(params) {
                 </div>
             </section>
             <section>
-                <div className="container mx-auto mb-5">
+                <div className="container mx-auto mb-5 py-4">
                     {params.children}
                 </div>
             </section>

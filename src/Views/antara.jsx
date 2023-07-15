@@ -58,8 +58,6 @@ export default function News() {
     ];
 
     const handleOnSearch = (string, results) => {
-        // onSearch will have as the first callback parameter
-        // the string searched and for the second the results.
         let data = category
         data = string
         setCategory(data)
@@ -74,11 +72,6 @@ export default function News() {
         }
     }
 
-    function stateCategory(e) {
-        
-        
-    }
-
 
     
     useEffect(()=>{
@@ -88,13 +81,13 @@ export default function News() {
 
     return (
         <>
-            <div className="py-4">
+            <div className="mb-4">
                 <ReactSearchAutocomplete
                     items={items}
                     onSearch={handleOnSearch}
                     value={category}
                     className='min-h-[2pc] w-[40%] border-2 border-sky-500 rounded p-2' 
-                    placeholder='input-stasiun'
+                    placeholder='input-content'
                     showIcon={false}
                 />
             </div>
@@ -105,8 +98,6 @@ export default function News() {
                     ))
                 }
             </div>
-            
-            
         </>
     )
 }

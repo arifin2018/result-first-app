@@ -1,8 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from '../Components/navbar'
-import News from '../Views/news'
-import NewsDetail from '../Views/newsDetail'
+import Antara from '../Views/antara'
+import Cnbc from '../Views/cnbc'
+import { IndexProvider } from '../Components/context'
 
 export default function index() {
   return (
@@ -11,14 +12,16 @@ export default function index() {
         <Route path="/" element={
           <Navbar/>
         } />
-        <Route path="/news" element={
+        <Route path="/antara" element={
           <Navbar>
-            <News/>
+            <Antara/>
           </Navbar>
         } />
-        <Route path="/news/:details" element={
+        <Route path="/cnbc" element={
           <Navbar>
-            <NewsDetail/>
+            <IndexProvider>
+              <Cnbc/>
+            </IndexProvider>
           </Navbar>
         } />
       </Routes>
