@@ -6,4 +6,9 @@ const newsCnn = atom({
     default: {}, // default value (aka initial value)
 });
 
-export {newsCnn}
+const newsCategory = atom({
+    key: 'terbaru', // unique ID (with respect to other atoms/selectors)
+    default: 'terbaru', // default value (aka initial value)
+});
+
+export {newsCnn,newsCategory}

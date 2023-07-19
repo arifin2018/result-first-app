@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import InputSearch from './InputSearch';
 
 export default function Navbar(params) {
     const [button, setButton] = useState('burger');

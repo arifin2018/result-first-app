@@ -20,7 +20,6 @@ function IndexProvider(params) {
     }
   }
 
-  console.log();
 
 
   useEffect(()=>{

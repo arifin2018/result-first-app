@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Card from '../Components/card'
+import Card from '../Components/Card'
 import axios from 'axios'
-import { ReactSearchAutocomplete } from 'react-search-autocomplete';
+import InputSearch from '../Components/InputSearch';
 
 export default function News() {
-    const [news, setNews] = useState([]);
-    const [category, setCategory] = useState('terbaru')
-    const [loading, setLoading] = useState(true)
     const items = [
         {
             id: 0,
@@ -58,6 +55,11 @@ export default function News() {
         },
     ];
 
+    const [news, setNews] = useState([]);
+    const [category, setCategory] = useState('terbaru')
+    const [loading, setLoading] = useState(true)
+    
+
     const handleOnSearch = (string, results) => {
         let data = category
         data = string
@@ -79,21 +81,12 @@ export default function News() {
     useEffect(()=>{
         getNews()
          // eslint-disable-next-line
-    },[category])
+    })
 
     return (
         <>
-            <div className="mb-4">
-                <ReactSearchAutocomplete
-                    items={items}
-                    onSearch={handleOnSearch}
-                    value={category}
-                    className='min-h-[2pc] w-[40%] border-2 border-sky-500 rounded p-2' 
-                    placeholder='input-content'
-                    showIcon={false}
-                />
-            </div>
-            <div className='flex gap-6 justify-center md:gap-3 flex-wrap flex-row'>
+            <InputSearch onSearch={handleOnSearch} value={category} items={items}/>
+            <div className='flex gap-6 justify-center md:justify-start md:gap-3 flex-wrap flex-row'>
                 {
                     loading ? <h1>Loading ... </h1> : 
                     news.data?.posts.map((news, index)=>(
