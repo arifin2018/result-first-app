@@ -41,16 +41,7 @@ export default function Navbar(params) {
                             <NavLink to='/cnbc' className='block py-3'>Cnbc</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/' className='block py-3'>03</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/' className='block py-3'>04</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/' className='block py-3'>05</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/' className='block py-3'>06</NavLink>
+                            <NavLink to='/cnn' className='block py-3'>Cnn</NavLink>
                         </li>
                     </ul>
                 </div>

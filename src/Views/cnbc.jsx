@@ -7,7 +7,7 @@ import Card from '../Components/card';
 function Cnbc() {
     const {user, news} = useContext(MyContext)
     return (
-        <div className='flex gap-3 flex-wrap flex-row'>
+        <div className='flex gap-6 justify-center md:gap-3 flex-wrap flex-row'>
             {
                 news?.data?.posts.map((users,index)=>(
                     <Card img={users.thumbnail ?? ''} title={users.title ?? ''} body={users.description ?? ''} key={index} detail={users.link}/>

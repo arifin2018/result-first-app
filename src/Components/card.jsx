@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function card(params) {
+export default function Card(params) {
     return (
         <>
             <div className='max-w-[200px] bg-gray-400 rounded-md shadow-md	shadow-gray-500'>

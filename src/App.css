@@ -15,9 +15,8 @@ body {
 @media (max-width: 768px) { 
   .expanded{
     /* height: 200px !important; */
-    height: 14rem !important;
+    height: max-content !important;
     /* overflow-y: scroll; */
-    max-height: max-content;
     width: 100%;
   }
 

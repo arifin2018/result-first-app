@@ -25,7 +25,8 @@ function IndexProvider(params) {
 
   useEffect(()=>{
     getNews()
-  },[news])
+    // eslint-disable-next-line
+  },[])
 
   return (
     <MyContext.Provider value={{ user, news }}>

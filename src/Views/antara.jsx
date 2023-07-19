@@ -6,6 +6,7 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 export default function News() {
     const [news, setNews] = useState([]);
     const [category, setCategory] = useState('terbaru')
+    const [loading, setLoading] = useState(true)
     const items = [
         {
             id: 0,
@@ -67,17 +68,18 @@ export default function News() {
         try {
             let {data} = await axios.get(`https://api-berita-indonesia.vercel.app/antara/${category}`);
             setNews(data)
+            setLoading(false)
         } catch (error) {
+            setLoading(false)
             console.log(error);
         }
     }
-
 
     
     useEffect(()=>{
         getNews()
          // eslint-disable-next-line
-    },[news,category])
+    },[category])
 
     return (
         <>
@@ -91,8 +93,9 @@ export default function News() {
                     showIcon={false}
                 />
             </div>
-            <div className='flex gap-3 flex-wrap flex-row'>
+            <div className='flex gap-6 justify-center md:gap-3 flex-wrap flex-row'>
                 {
+                    loading ? <h1>Loading ... </h1> : 
                     news.data?.posts.map((news, index)=>(
                         <Card img={news.thumbnail ?? ''} title={news.title ?? ''} body={news.description ?? ''} key={index} detail={news.link}/>
                     ))
