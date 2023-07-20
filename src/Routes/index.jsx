@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
+import Navbar from '../Components/navbar'
 import Antara from '../Views/antara'
 import Cnbc from '../Views/cnbc'
 import Cnn from '../Views/cnn'

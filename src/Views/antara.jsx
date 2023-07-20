@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Card from '../Components/Card'
+import Card from '../Components/card'
 import axios from 'axios'
 import InputSearch from '../Components/InputSearch';
 

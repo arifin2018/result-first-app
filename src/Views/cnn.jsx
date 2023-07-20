@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { newsCategory, newsCnn, textState } from '../Components/context/recoil'
 import axios from 'axios';
-import Card from '../Components/Card'
+import Card from '../Components/card'
 import InputSearch from '../Components/InputSearch';
 
 export default function Cnn() {
