@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom'
 export default function Card(params) {
     return (
         <>
-            <div className='max-w-[200px] bg-gray-400 rounded-md shadow-md	shadow-gray-500'>
+            <div className='max-w-[10.5rem] md:max-w-[200px] bg-gray-400 rounded-md shadow-md	shadow-gray-500'>
                 {
                     params.img != null ?
-                    <img src={params.img} alt="Avatar" className="w-[200px] h-[150px] rounded-md object-cover"/> :
+                    <img src={params.img} alt="Avatar" className="max-w-[10.5rem] md:max-w-[200px] h-[150px] rounded-md object-cover"/> :
                     ''
                 }
                 <div className="container p-1 max-h-[100px]">
