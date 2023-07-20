@@ -46,7 +46,7 @@ export default function InputSearch(params) {
                 items={items}
                 onSearch={params.onSearch}
                 value={params.value}
-                className='min-h-[2pc] w-[40%] border-2 border-sky-500 rounded p-2' 
+                className='min-h-[2pc] w-[85%] border-2 border-sky-500 rounded p-2 md:w-[40%]' 
                 placeholder='input-content'
                 showIcon={false}
                 options={items}

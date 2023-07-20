@@ -12,9 +12,9 @@ export default function Card(params) {
                 }
                 <div className="container p-1 max-h-[100px]">
                     <h4 className='my-1 gap-3'>
-                        <b className='break-words max-w-[35ch] overflow-hidden inline-block max-h-[20px]'>{params.title}</b>
+                        <b className='break-words max-w-[33ch] md:max-w-[35ch] overflow-hidden inline-block max-h-[20px]'>{params.title}</b>
                     </h4> 
-                    <p className='break-words max-w-[20ch] overflow-hidden inline-block max-h-[60px]'>{params.body}.</p> 
+                    <p className='break-words max-w-[18ch] md:max-w-[20ch] overflow-hidden inline-block max-h-[60px]'>{params.body}.</p> 
                 </div>
                 <div className="p-3">
                     <NavLink to={params.detail} target="_blank" className='bg-gray-390 rounded-md cursor-pointer px-3 py-2 bg-sky-400 no-underline text-sky-100'>Details</NavLink>
