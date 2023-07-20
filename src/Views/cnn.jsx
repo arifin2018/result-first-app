@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { newsCategory, newsCnn, textState } from '../Components/context/recoil'
+import { Category, categoryState, newsCategory, newsCnn, textState } from '../Components/context/recoil'
 import axios from 'axios';
 import Card from '../Components/card'
 import InputSearch from '../Components/InputSearch';
@@ -12,10 +12,11 @@ export default function Cnn() {
   const items = ['terbaru', 'nasional', 'internasional', 'ekonomi', 'olahraga', 'teknologi', 'hiburan', 'gayahidup']
   const [Cnn, setCnn] = useRecoilState(newsCnn)
   const [category, setCategory] = useRecoilState(newsCategory)
+  const [Categories] = useRecoilState(categoryState)
 
   async function name() {
     try {
-      let {data} = await axios.get(`https://api-berita-indonesia.vercel.app/cnn/${category}`);
+      let {data} = await axios.get(`https://api-berita-indonesia.vercel.app/cnn/${Categories}`);
       setCnn(data)
     } catch (error) {
         console.log(error);
@@ -26,12 +27,13 @@ export default function Cnn() {
     let data = category
     data = string
     setCategory(data)
-}
+  }
+
 
   useEffect(()=>{
     name()
     // eslint-disable-next-line
-  },[])
+  },[Categories])
 
   return (
     <NewsContext.Provider value={{ items }}>

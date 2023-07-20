@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import InputSearch from './InputSearch';
+import { useRoutes } from 'react-router-dom';
 
 const navigations = [
     {label: 'Antara', path:'/antara'},
@@ -42,9 +43,9 @@ export default function Navbar(params) {
                 <div id='navbar-content' className={`absolute z-10 collapsed overflow-y-auto navbar-w-bg-h-p transition-all md:flex md:relative md:collapsed-none md:py-2`}>
                     <ul className="list-none md:flex md:flex-row md:justify-end md:w-full md:gap-x-8">
                         {
-                            navigations.map((navigation)=>(
-                                <li>
-                                    <NavLink to={navigation.path} className='block py-3' onClick={showNav}>{navigation.label}</NavLink>
+                            navigations.map((navigation,index)=>(
+                                <li key={index}>
+                                    <NavLink to={navigation.path} className={`block py-3`} onClick={showNav} >{navigation.label}</NavLink>
                                 </li>
                             ))
                         }

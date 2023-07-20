@@ -2,62 +2,16 @@ import React, { useEffect, useState } from 'react'
 import Card from '../Components/card'
 import axios from 'axios'
 import InputSearch from '../Components/InputSearch';
+import { useRecoilState } from 'recoil';
+import { categoryState } from '../Components/context/recoil';
 
 export default function News() {
-    const items = [
-        {
-            id: 0,
-            name: 'terbaru'
-        },
-        {
-            id: 1,
-            name: 'politik'
-        },
-        {
-            id: 2,
-            name: 'hukum'
-        },
-        {
-            id: 3,
-            name: 'ekonomi'
-        },
-        {
-            id: 4,
-            name: 'bola'
-        },
-        {
-            id: 5,
-            name: 'olahraga'
-        },
-        {
-            id: 6,
-            name: 'humaniora'
-        },
-        {
-            id: 7,
-            name: 'lifestyle'
-        },
-        {
-            id: 8,
-            name: 'hiburan'
-        },
-        {
-            id: 9,
-            name: 'dunia'
-        },
-        {
-            id: 10,
-            name: 'tekno'
-        },
-        {
-            id: 11,
-            name: 'otomotif'
-        },
-    ];
+    const items = ['terbaru', 'politik', 'hukum', 'ekonomi', 'bola', 'olahraga', 'humaniora', 'lifestyle', 'hiburan', 'dunia', 'tekno', 'otomotif'];
 
     const [news, setNews] = useState([]);
     const [category, setCategory] = useState('terbaru')
     const [loading, setLoading] = useState(true)
+    const [Categories] = useRecoilState(categoryState)
     
 
     const handleOnSearch = (string, results) => {
@@ -68,7 +22,7 @@ export default function News() {
 
     async function getNews() {
         try {
-            let {data} = await axios.get(`https://api-berita-indonesia.vercel.app/antara/${category}`);
+            let {data} = await axios.get(`https://api-berita-indonesia.vercel.app/antara/${Categories}`);
             setNews(data)
             setLoading(false)
         } catch (error) {
@@ -81,7 +35,7 @@ export default function News() {
     useEffect(()=>{
         getNews()
          // eslint-disable-next-line
-    },[])
+    },[Categories])
 
     return (
         <>

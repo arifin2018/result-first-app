@@ -7,8 +7,13 @@ const newsCnn = atom({
 });
 
 const newsCategory = atom({
-    key: 'terbaru', // unique ID (with respect to other atoms/selectors)
+    key: 'newsCategory', // unique ID (with respect to other atoms/selectors)
     default: 'terbaru', // default value (aka initial value)
 });
 
-export {newsCnn,newsCategory}
+const categoryState = atom({
+    key: 'categoryState', // unique ID (with respect to other atoms/selectors)
+    default: '', // default value (aka initial value)
+});
+
+export {newsCnn,newsCategory,categoryState}
