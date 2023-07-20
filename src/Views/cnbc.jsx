@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { MyContext } from '../Components/context';
 import Card from '../Components/card';
-import InputSearch from '../Components/InputSearch';
 // import { IndexProvider, MyContext } from '../Components/Context/index.jsx'
 
 

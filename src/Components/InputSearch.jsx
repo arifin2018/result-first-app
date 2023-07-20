@@ -1,24 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import NewsContext from './context/news-context'
 
 export default function InputSearch(params) {
-    let items = []
+    const [items, setItem] = useState([])
+    const ctx = useContext(NewsContext)
     
-    function paramsItem() {
-        // for (const item of params.items) {
-        //     items.push({name:item})
-        // }
-        // params.items.forEach(element => {
-        //     items.push(element)
-        // });
-        for (let index = 0; index < 5; index++) {
-            items.push(index)
-        }
-    }
-
     useEffect(()=>{
+        function paramsItem() {
+            for (const item of ctx.items) {
+                // items.push({name:item})
+                setItem(function(data){
+                    return [...data,{name:item}]
+                });
+            }
+        }
         paramsItem()
     },[])
+    console.log(items);
 
     return (
         <div className="mb-4">

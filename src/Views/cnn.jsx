@@ -4,6 +4,9 @@ import { newsCategory, newsCnn, textState } from '../Components/context/recoil'
 import axios from 'axios';
 import Card from '../Components/card'
 import InputSearch from '../Components/InputSearch';
+import NewsContext from '../Components/context/news-context';
+
+
 
 export default function Cnn() {
   const items = ['terbaru', 'nasional', 'internasional', 'ekonomi', 'olahraga', 'teknologi', 'hiburan', 'gayahidup']
@@ -32,8 +35,8 @@ export default function Cnn() {
   },[])
 
   return (
-    <>
-      <InputSearch items={items} onSearch={handleOnSearch} value={category}/>
+    <NewsContext.Provider value={{ items }}>
+      <InputSearch onSearch={handleOnSearch} value={category}/>
       <div className='flex gap-6 justify-center md:justify-start md:gap-3 flex-wrap flex-row'>
         {
           Cnn?.data?.posts.map((users,index)=>(
@@ -41,6 +44,6 @@ export default function Cnn() {
           ))
       }
       </div>
-    </>
+    </NewsContext.Provider>
   )
 }
