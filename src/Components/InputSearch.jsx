@@ -5,10 +5,11 @@ import NewsContext from './context/news-context'
 export default function InputSearch(params) {
     const [items, setItem] = useState([])
     const ctx = useContext(NewsContext)
-    
+    console.log(typeof params.items === 'undefined');
+
     useEffect(()=>{
         function paramsItem() {
-            if (params?.items.length < 1) {
+            if (typeof params.items === 'undefined') {
                 for (const item of ctx.items) {
                     setItem(function(data){
                         return [...data,{name:item}]

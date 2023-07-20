@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import InputSearch from './InputSearch';
 
+const navigations = [
+    {label: 'Antara', path:'/antara'},
+    {label: 'Cnbc', path:'/cnbc'},
+    {label: 'Cnn', path:'/cnn'},
+]
+
 export default function Navbar(params) {
     const [button, setButton] = useState('burger');
 
@@ -35,15 +41,13 @@ export default function Navbar(params) {
                 </div>  
                 <div id='navbar-content' className={`absolute z-10 collapsed overflow-y-auto navbar-w-bg-h-p transition-all md:flex md:relative md:collapsed-none md:py-2`}>
                     <ul className="list-none md:flex md:flex-row md:justify-end md:w-full md:gap-x-8">
-                        <li>
-                            <NavLink to='/antara' className='block py-3'>Antara</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/cnbc' className='block py-3'>Cnbc</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/cnn' className='block py-3'>Cnn</NavLink>
-                        </li>
+                        {
+                            navigations.map((navigation)=>(
+                                <li>
+                                    <NavLink to={navigation.path} className='block py-3' onClick={showNav}>{navigation.label}</NavLink>
+                                </li>
+                            ))
+                        }
                     </ul>
                 </div>
             </section>
