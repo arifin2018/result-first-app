@@ -81,7 +81,7 @@ export default function News() {
     useEffect(()=>{
         getNews()
          // eslint-disable-next-line
-    })
+    },[])
 
     return (
         <>

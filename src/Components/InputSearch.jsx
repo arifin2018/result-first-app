@@ -8,16 +8,22 @@ export default function InputSearch(params) {
     
     useEffect(()=>{
         function paramsItem() {
-            for (const item of ctx.items) {
-                // items.push({name:item})
-                setItem(function(data){
-                    return [...data,{name:item}]
-                });
+            if (params?.items.length < 1) {
+                for (const item of ctx.items) {
+                    setItem(function(data){
+                        return [...data,{name:item}]
+                    });
+                }
+            }else{
+                for (const item of params.items) {
+                    setItem(function(data){
+                        return [...data,{name:item}]
+                    });
+                }
             }
         }
         paramsItem()
     },[])
-    console.log(items);
 
     return (
         <div className="mb-4">

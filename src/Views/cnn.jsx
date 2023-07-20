@@ -30,7 +30,6 @@ export default function Cnn() {
 
   useEffect(()=>{
     name()
-    console.log(Cnn);
     // eslint-disable-next-line
   },[])
 
