@@ -22,6 +22,7 @@ export default function News() {
 
     async function getNews() {
         try {
+            setLoading(true)
             let {data} = await axios.get(`https://api-berita-indonesia.vercel.app/antara/${Categories}`);
             setNews(data)
             setLoading(false)
