@@ -12,12 +12,18 @@ export default function News() {
     const [category, setCategory] = useState('terbaru')
     const [loading, setLoading] = useState(true)
     const [Categories] = useRecoilState(categoryState)
+    const [time, setTime] = useState(0)
     
 
     const handleOnSearch = (string, results) => {
         let data = category
-        data = string
-        setCategory(data)
+        if (time) {
+            clearTimeout(time);
+        }
+        setTime(setTimeout(() => {
+            data = string
+            setCategory(data)
+        },3000))
     }
 
     async function getNews() {
@@ -35,7 +41,7 @@ export default function News() {
     
     useEffect(()=>{
         getNews()
-         // eslint-disable-next-line
+        // eslint-disable-next-line
     },[Categories])
 
     return (

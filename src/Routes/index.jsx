@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from '../Components/navbar'
 import Antara from '../Views/antara'
 import Cnbc from '../Views/cnbc'
+import Index from '../Views/index'
 import Cnn from '../Views/cnn'
 import { IndexProvider } from '../Components/context'
 
@@ -11,7 +12,9 @@ export default function index() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={
-          <Navbar/>
+          <Navbar>
+            <Index/>
+          </Navbar>
         } />
         <Route path="/antara" element={
           <Navbar>

@@ -36,10 +36,6 @@ export default function InputSearch(params) {
         // eslint-disable-next-line
     },[])
 
-
-
-
-
     return (
         <div className="mb-4">
             <ReactSearchAutocomplete
