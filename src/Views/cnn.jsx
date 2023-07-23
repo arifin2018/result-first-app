@@ -5,6 +5,7 @@ import axios from 'axios';
 import Card from '../Components/card'
 import InputSearch from '../Components/InputSearch';
 import NewsContext from '../Components/context/news-context';
+import debounce from 'lodash.debounce';
 
 
 
@@ -26,8 +27,18 @@ export default function Cnn() {
   const handleOnSearch = (string, results) => {
     let data = category
     data = string
-    setCategory(data)
+    debouncedFunction(data);
   }
+
+  const debouncedFunction = debounce((data) => {
+    switch (data) {
+      case '':
+        data = 'terbaru';
+        break;
+      default:
+    }
+    setCategory(data)
+  }, 2500);
 
 
   useEffect(()=>{

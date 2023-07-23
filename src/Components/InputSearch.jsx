@@ -24,7 +24,6 @@ export default function InputSearch(params) {
             });
         }
     }
-    
 
     useEffect(()=>{
         setCategories(params.value)
